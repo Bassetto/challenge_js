@@ -11,6 +11,14 @@ const powerBank = 30.0;
 const capinha = 29.95;
 var valorCarrinho = 0.0;
 
+function taxRate(preco) {
+    return preco * tax;
+}
+
+function formatacaoPreco(preco) {
+	return "$ " + preco.toFixed(2);
+}
+
 function updateUsuario() {
     let nome = document.getElementById("nome").value;
     var saldo = Number(document.getElementById("saldo").value);
@@ -28,29 +36,56 @@ function updateUsuario() {
 
 
 function modeloCel() {
-    let escolha;
-    let escolhaID;
+    let escolha = document.querySelector("select");
+    let escolhaID = escolha.value;
 
-    escolha = document.querySelector(".escolhaCel").options;
-    // escolhaID = escolha.options[escolha.selectedIndex].text;
-    alert("Você escolheu: " + escolha);
+    switch (escolhaID){
+        case 1:
+            valorCarrinho += oneplus7;
+            break;
+        case 2:
+            valorCarrinho += IphoneXMax;
+            break;
+        case 3:
+            valorCarrinho += S10Plus;
+            break;
+        case 4:
+            valorCarrinho += Xiaomi9T;
+            break;
+        case 5:
+            valorCarrinho += Mate20;
+            break;
+    }
+    console.log("O seu carrinho é de: " + valorCarrinho)
+}
 
-    // escolha = Number(prompt("Modelos de celulares Disponíveis:\nDigite 1 para escolher OnePlus 7 (" + formatacaoPreco(oneplus7) + ")\nDigite 2 para escolher Iphone X Max (" + formatacaoPreco(IphoneXMax) + ")\nDigite 3 para escolher S10 Plus (" + formatacaoPreco(S10Plus) + ")\nDigite 4 para escolher Xiaomi 9T (" + formatacaoPreco(Xiaomi9T) + ")\nDigite 5 para escolher Huawei Mate 20 (" + formatacaoPreco(Mate20) + ")"));
-    // switch (escolha){
-    //     case 1:
-    //         valorCarrinho += oneplus7;
-    //         break;
-    //     case 2:
-    //         valorCarrinho += IphoneXMax;
-    //         break;
-    //     case 3:
-    //         valorCarrinho += S10Plus;
-    //         break;
-    //     case 4:
-    //         valorCarrinho += Xiaomi9T;
-    //         break;
-    //     case 5:
-    //         valorCarrinho += Mate20;
-    //         break;
-    // }
+function acessorios() {
+
+    let escolhaAcessorios;
+    
+    escolhaAcessorios = confirm("Deseja comprar acessórios?");
+
+    while(escolhaAcessorios) {
+        escolha = Number(prompt("Digite 1 para adicionar fones ao seu carrinho (" + formatacaoPreco(fones) + ")\nDigite 2 para adicionar cabo extra ao seu carrinho (" + formatacaoPreco(caboExtra) + ")\nDigite 3 para adicionar carregador ao seu carrinho (" + formatacaoPreco(carregador) + ")\nDigite 4 para adicionar power bank ao seu carrinho (" + formatacaoPreco(powerBank) + ")\nDigite 5 para adicionar case ao seu carrinho (" + formatacaoPreco(capinha) + ")"));
+
+        switch (escolha){
+            case 1:
+                valorCarrinho += fones;
+                break;
+            case 2:
+                valorCarrinho += caboExtra;
+                break;
+            case 3:
+                valorCarrinho += carregador;
+                break;
+            case 4:
+                valorCarrinho += powerBank;
+                break;
+            case 5:
+                valorCarrinho += capinha;
+                break;
+        }
+
+        escolhaAcessorios = confirm("Deseja comprar mais acessórios?");
+    }
 }
