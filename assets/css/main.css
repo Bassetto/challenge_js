@@ -1,0 +1,27 @@
+.display {
+    width: 70%;
+    height: auto;
+    margin: 3% auto;
+    padding: 0.5%;
+}
+
+.escolhaCel, .confirmacaoCompra, .confirmada, .cancelada{
+    display: none;
+}
+
+#imagens img {
+    width: 50%;
+    height: auto;
+}
+
+.layoutEscolhas {
+    display: flex;
+}
+
+.acessorios {
+    margin: 2% 0;
+}
+
+.mensagem {
+    text-align: center;
+}

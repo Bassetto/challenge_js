@@ -79,7 +79,7 @@ function formatacaoPreco(preco) {
 
 do {
 
-    function foramatacaoUpdate() {
+    function formatacaoUpdate() {
         moneyFormatado = formatacaoPreco(money);
         carrinhoFormatado = formatacaoPreco(valorCarrinho);
     }
@@ -95,7 +95,7 @@ do {
 
     valorCarrinho += taxRate(valorCarrinho);
 
-    foramatacaoUpdate();
+    formatacaoUpdate();
 
     if (money >= valorCarrinho) {
         
@@ -104,7 +104,7 @@ do {
 
         if (confirmarCompra) {
             money = money - valorCarrinho;
-            foramatacaoUpdate();
+            formatacaoUpdate();
 
             alert("Sua compra foi concluída com sucesso!\nSeu saldo em conta restante é de: " + moneyFormatado);
         } else {
