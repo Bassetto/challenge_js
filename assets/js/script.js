@@ -113,8 +113,14 @@ function acessorios() {
 }
 
 function cancelada() {
-    document.querySelector(".confirmacaoCompra").style.display = "none";
-    document.querySelector(".cancelada").style.display = "block";
+    let resposta = false;
+    resposta = confirm("Deseja voltar à pagina de compra?");
+    if (resposta) {
+        document.querySelector(".confirmacaoCompra").style.display = "none";
+        document.querySelector(".escolhaCel").style.display = "block";
+    } else{
+        window.close();
+    }
 }
 
 function confirmada() {
